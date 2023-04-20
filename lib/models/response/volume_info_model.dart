@@ -1,7 +1,7 @@
-import 'package:find_my_book/models/image_links_model.dart';
-import 'package:find_my_book/models/industry_identifier_model.dart';
-import 'package:find_my_book/models/panelization_summary_model.dart';
-import 'package:find_my_book/models/reading_modes_model.dart';
+import 'package:find_my_book/models/response/image_links_model.dart';
+import 'package:find_my_book/models/response/industry_identifier_model.dart';
+import 'package:find_my_book/models/response/panelization_summary_model.dart';
+import 'package:find_my_book/models/response/reading_modes_model.dart';
 
 class VolumeInfo {
   VolumeInfo._({

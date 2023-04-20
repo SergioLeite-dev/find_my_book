@@ -1,4 +1,4 @@
-import 'package:find_my_book/models/epub_model.dart';
+import 'package:find_my_book/models/response/epub_model.dart';
 
 class AccessInfo {
   AccessInfo._({

@@ -1,4 +1,4 @@
-import 'package:find_my_book/models/offer_list_price_model.dart';
+import 'package:find_my_book/models/response/offer_list_price_model.dart';
 
 class Offer {
   Offer._({

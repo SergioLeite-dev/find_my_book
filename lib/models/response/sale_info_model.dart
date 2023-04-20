@@ -1,5 +1,5 @@
-import 'package:find_my_book/models/offer_model.dart';
-import 'package:find_my_book/models/sale_info_list_price_model.dart';
+import 'package:find_my_book/models/response/offer_model.dart';
+import 'package:find_my_book/models/response/sale_info_list_price_model.dart';
 
 class SaleInfo {
   SaleInfo._({

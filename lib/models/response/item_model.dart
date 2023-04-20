@@ -1,7 +1,7 @@
-import 'package:find_my_book/models/access_info_model.dart';
-import 'package:find_my_book/models/sale_info_model.dart';
-import 'package:find_my_book/models/search_info_model.dart';
-import 'package:find_my_book/models/volume_info_model.dart';
+import 'package:find_my_book/models/response/access_info_model.dart';
+import 'package:find_my_book/models/response/sale_info_model.dart';
+import 'package:find_my_book/models/response/search_info_model.dart';
+import 'package:find_my_book/models/response/volume_info_model.dart';
 
 class Item {
   Item._({

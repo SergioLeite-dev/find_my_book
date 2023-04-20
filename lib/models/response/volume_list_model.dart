@@ -1,4 +1,4 @@
-import 'package:find_my_book/models/item_model.dart';
+import 'package:find_my_book/models/response/item_model.dart';
 
 class VolumeList {
   VolumeList._({
