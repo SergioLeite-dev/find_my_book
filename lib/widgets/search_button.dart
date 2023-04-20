@@ -30,7 +30,7 @@ class SearchButton extends StatelessWidget {
         ),
         child: Icon(
           iconData,
-          size: 32,
+          size: 30,
         ),
       ),
     );

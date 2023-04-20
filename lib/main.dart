@@ -1,6 +1,7 @@
 import 'package:find_my_book/controllers/search_controller.dart';
 import 'package:find_my_book/services/http_client.dart';
 import 'package:find_my_book/views/home_screen.dart';
+import 'package:find_my_book/views/search_results_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -23,6 +24,7 @@ class FindMyBookApp extends StatelessWidget {
         routes: {
           "/": (context) => const HomeScreen(),
           HomeScreen.routeName: (context) => const HomeScreen(),
+          SearchResultsScreen.routeName: (context) => const SearchResultsScreen(),
         },
       ),
     );

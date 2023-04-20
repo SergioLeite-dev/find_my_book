@@ -1,4 +1,5 @@
 import 'package:find_my_book/controllers/search_controller.dart';
+import 'package:find_my_book/views/search_results_screen.dart';
 import 'package:find_my_book/widgets/search_text_field.dart';
 import 'package:find_my_book/widgets/search_button.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
       if (controller.state == SearchState.error) {
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Erro na requisição')));
       } else if (controller.state == SearchState.success) {
-        print("Deu bom!!");
+        Navigator.of(context).pushNamed(SearchResultsScreen.routeName);
       }
     });
   }
@@ -55,6 +56,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
-//TODO: Navigate to SearchResultsScreen
-//TODO: SearchResultsScreen should have the same textfield as home screen but also with a clear icon at the end. That icon should also focus on the textfield.
