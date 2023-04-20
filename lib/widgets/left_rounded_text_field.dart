@@ -1,33 +1,34 @@
+import 'package:find_my_book/controllers/search_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class LeftRoundedTextField extends StatelessWidget {
   const LeftRoundedTextField({
     super.key,
-    required this.controller,
     required this.height,
     required this.radius,
   });
-
-  final TextEditingController controller;
   final double height;
   final double radius;
 
   @override
   Widget build(BuildContext context) {
+    final controller = Provider.of<SearchController>(context, listen: false);
     return Expanded(
       child: SizedBox(
         height: height,
         child: TextField(
-          controller: controller,
-          decoration: InputDecoration(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(radius),
-                bottomLeft: Radius.circular(radius),
+            decoration: InputDecoration(
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(radius),
+                  bottomLeft: Radius.circular(radius),
+                ),
               ),
             ),
-          ),
-        ),
+            onChanged: (value) {
+              controller.searchRequest = controller.searchRequest.copyWith(querry: value);
+            }),
       ),
     );
   }

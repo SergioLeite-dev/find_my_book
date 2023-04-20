@@ -1,6 +1,8 @@
+import 'package:find_my_book/controllers/search_controller.dart';
 import 'package:find_my_book/widgets/left_rounded_text_field.dart';
 import 'package:find_my_book/widgets/right_rounded_button.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -11,7 +13,21 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final _querryController = TextEditingController();
+  late final SearchController controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = context.read<SearchController>();
+    controller.addListener(() {
+      if (controller.state == SearchState.error) {
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Erro na requisição')));
+      } else if (controller.state == SearchState.success) {
+        print("Deu bom!!");
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,14 +38,12 @@ class _HomeScreenState extends State<HomeScreen> {
         padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
         child: Center(
           child: Row(
-            children: [
+            children: const [
               LeftRoundedTextField(
-                controller: _querryController,
                 height: 50,
                 radius: 30,
               ),
               RightRoundedButton(
-                onPressed: () {},
                 iconData: Icons.search,
                 height: 50,
                 radius: 30,
@@ -41,3 +55,6 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
+//TODO: Navigate to SearchResultsScreen
+//TODO: SearchResultsScreen should have the same textfield as home screen but also with a clear icon at the end. That icon should also focus on the textfield.
