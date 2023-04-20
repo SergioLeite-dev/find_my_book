@@ -2,8 +2,8 @@ import 'package:find_my_book/controllers/search_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class LeftRoundedTextField extends StatelessWidget {
-  const LeftRoundedTextField({
+class SearchTextField extends StatelessWidget {
+  const SearchTextField({
     super.key,
     required this.height,
     required this.radius,

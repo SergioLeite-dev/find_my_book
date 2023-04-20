@@ -1,6 +1,6 @@
 import 'package:find_my_book/controllers/search_controller.dart';
-import 'package:find_my_book/widgets/left_rounded_text_field.dart';
-import 'package:find_my_book/widgets/right_rounded_button.dart';
+import 'package:find_my_book/widgets/search_text_field.dart';
+import 'package:find_my_book/widgets/search_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -39,11 +39,11 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Center(
           child: Row(
             children: const [
-              LeftRoundedTextField(
+              SearchTextField(
                 height: 50,
                 radius: 30,
               ),
-              RightRoundedButton(
+              SearchButton(
                 iconData: Icons.search,
                 height: 50,
                 radius: 30,

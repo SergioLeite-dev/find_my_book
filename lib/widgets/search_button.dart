@@ -2,8 +2,8 @@ import 'package:find_my_book/controllers/search_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class RightRoundedButton extends StatelessWidget {
-  const RightRoundedButton({
+class SearchButton extends StatelessWidget {
+  const SearchButton({
     super.key,
     required this.iconData,
     required this.height,
