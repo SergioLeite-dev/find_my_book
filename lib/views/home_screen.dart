@@ -21,10 +21,18 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
     controller = context.read<SearchController>();
     controller.addListener(() {
-      if (controller.state == SearchState.error) {
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Erro na requisição')));
-      } else if (controller.state == SearchState.success) {
-        Navigator.of(context).pushNamed(SearchResultsScreen.routeName);
+      switch (controller.state) {
+        case SearchState.success:
+          Navigator.of(context).pushNamed(SearchResultsScreen.routeName);
+          break;
+        case SearchState.error:
+          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Request Error')));
+          break;
+        case SearchState.badRequest:
+          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Please provide search terms')));
+          break;
+        default:
+          break;
       }
     });
   }
