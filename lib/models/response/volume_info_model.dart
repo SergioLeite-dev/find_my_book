@@ -30,9 +30,9 @@ class VolumeInfo {
   });
 
   final String title;
-  final List<String> authors;
+  final List<String>? authors;
   final String? publisher;
-  final String publishedDate;
+  final String? publishedDate;
   final String? description;
   final List<IndustryIdentifier> industryIdentifiers;
   final ReadingModes readingModes;
@@ -41,7 +41,7 @@ class VolumeInfo {
   final String maturityRating;
   final bool allowAnonLogging;
   final String contentVersion;
-  final PanelizationSummary panelizationSummary;
+  final PanelizationSummary? panelizationSummary;
   final ImageLinks? imageLinks;
   final String language;
   final String previewLink;
@@ -54,7 +54,7 @@ class VolumeInfo {
 
   factory VolumeInfo.fromJson(Map<String, dynamic> json) => VolumeInfo._(
         title: json["title"],
-        authors: List<String>.from(json["authors"].map((x) => x)),
+        authors: json["authors"] == null ? [] : List<String>.from(json["authors"].map((x) => x)),
         publisher: json["publisher"],
         publishedDate: json["publishedDate"],
         description: json["description"],
@@ -65,7 +65,7 @@ class VolumeInfo {
         maturityRating: json["maturityRating"],
         allowAnonLogging: json["allowAnonLogging"],
         contentVersion: json["contentVersion"],
-        panelizationSummary: PanelizationSummary.fromJson(json["panelizationSummary"]),
+        panelizationSummary: json["panelizationSummary"] == null ? null : PanelizationSummary.fromJson(json["panelizationSummary"]),
         imageLinks: json["imageLinks"] == null ? null : ImageLinks.fromJson(json["imageLinks"]),
         language: json["language"],
         previewLink: json["previewLink"],
