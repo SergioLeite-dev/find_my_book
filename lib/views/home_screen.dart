@@ -20,23 +20,31 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     controller = context.read<SearchController>();
-    controller.addListener(() {
-      if (mounted) {
-        switch (controller.state) {
-          case SearchState.success:
-            Navigator.of(context).pushNamed(SearchResultsScreen.routeName);
-            break;
-          case SearchState.error:
-            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Request Error')));
-            break;
-          case SearchState.badRequest:
-            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Please provide search terms')));
-            break;
-          default:
-            break;
-        }
+    controller.addListener(_homeListener);
+  }
+
+  _homeListener() {
+    if (mounted && ModalRoute.of(context)!.isCurrent) {
+      switch (controller.state) {
+        case SearchState.success:
+          Navigator.of(context).pushNamed(SearchResultsScreen.routeName);
+          break;
+        case SearchState.error:
+          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Request Error')));
+          break;
+        case SearchState.badRequest:
+          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Please provide search terms')));
+          break;
+        default:
+          break;
       }
-    });
+    }
+  }
+
+  @override
+  void dispose() {
+    controller.removeListener(_homeListener);
+    super.dispose();
   }
 
   @override

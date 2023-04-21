@@ -20,23 +20,34 @@ class _SearchResultsScreenState extends State<SearchResultsScreen> {
   void initState() {
     super.initState();
     controller = context.read<SearchController>();
-    controller.addListener(() {
-      if (mounted) {
-        switch (controller.state) {
-          case SearchState.success:
-            Navigator.of(context).pushReplacementNamed(SearchResultsScreen.routeName);
-            break;
-          case SearchState.error:
-            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Request Error')));
-            break;
-          case SearchState.badRequest:
-            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Please provide search terms')));
-            break;
-          default:
-            break;
-        }
+    controller.addListener(_resultsListener);
+  }
+
+  _resultsListener() {
+    if (mounted && ModalRoute.of(context)!.isCurrent) {
+      switch (controller.state) {
+        case SearchState.success:
+          Navigator.of(context).pushReplacementNamed(SearchResultsScreen.routeName);
+          // Foi neste momento que eu percebi que quando eu já estiver na página de resultados,
+          // eu não preciso navegar de novo para a página de resultados, por mais tolo que isso pareça.
+          // basta atualizar a lista de resultados.
+          break;
+        case SearchState.error:
+          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Request Error')));
+          break;
+        case SearchState.badRequest:
+          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Please provide search terms')));
+          break;
+        default:
+          break;
       }
-    });
+    }
+  }
+
+  @override
+  void dispose() {
+    controller.removeListener(_resultsListener);
+    super.dispose();
   }
 
   @override
