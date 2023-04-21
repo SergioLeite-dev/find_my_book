@@ -17,7 +17,7 @@ class SearchController extends ChangeNotifier {
   Future<void> search() async {
     state = SearchState.loading;
     notifyListeners();
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 1));
     if (searchRequest.querry == "") {
       state = SearchState.badRequest;
       notifyListeners();
