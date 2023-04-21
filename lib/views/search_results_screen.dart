@@ -27,10 +27,8 @@ class _SearchResultsScreenState extends State<SearchResultsScreen> {
     if (mounted && ModalRoute.of(context)!.isCurrent) {
       switch (controller.state) {
         case SearchState.success:
+          //TODO: Unnecessary navigation. Just update List Widget.
           Navigator.of(context).pushReplacementNamed(SearchResultsScreen.routeName);
-          // Foi neste momento que eu percebi que quando eu já estiver na página de resultados,
-          // eu não preciso navegar de novo para a página de resultados, por mais tolo que isso pareça.
-          // basta atualizar a lista de resultados.
           break;
         case SearchState.error:
           ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Request Error')));
@@ -55,8 +53,8 @@ class _SearchResultsScreenState extends State<SearchResultsScreen> {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.fromLTRB(20, 40, 20, 0),
-        child: SingleChildScrollView(
-            child: Column(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             Row(
               children: [
@@ -74,8 +72,29 @@ class _SearchResultsScreenState extends State<SearchResultsScreen> {
                 ),
               ],
             ),
+            ItemsListView(),
           ],
-        )),
+        ),
+      ),
+    );
+  }
+}
+
+class ItemsListView extends StatelessWidget {
+  const ItemsListView({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    //TODO: Implement ListView
+    return Flexible(
+      fit: FlexFit.loose,
+      child: ListView.builder(
+        itemCount: 20,
+        itemBuilder: (context, index) {
+          return ListTile(title: Text("item $index"));
+        },
       ),
     );
   }
