@@ -34,7 +34,7 @@ class VolumeInfo {
   final String? publisher;
   final String? publishedDate;
   final String? description;
-  final List<IndustryIdentifier> industryIdentifiers;
+  final List<IndustryIdentifier>? industryIdentifiers;
   final ReadingModes readingModes;
   final String printType;
   final List<String>? categories;
@@ -58,7 +58,8 @@ class VolumeInfo {
         publisher: json["publisher"],
         publishedDate: json["publishedDate"],
         description: json["description"],
-        industryIdentifiers: List<IndustryIdentifier>.from(json["industryIdentifiers"].map((x) => IndustryIdentifier.fromJson(x))),
+        industryIdentifiers:
+            json["industryIdentifiers"] == null ? null : List<IndustryIdentifier>.from(json["industryIdentifiers"].map((x) => IndustryIdentifier.fromJson(x))),
         readingModes: ReadingModes.fromJson(json["readingModes"]),
         printType: json["printType"],
         categories: json["categories"] == null ? [] : List<String>.from(json["categories"]!.map((x) => x)),
