@@ -1,5 +1,6 @@
 import 'package:find_my_book/controllers/search_controller.dart';
 import 'package:find_my_book/widgets/pagination_button.dart';
+import 'package:find_my_book/widgets/volume_card.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -20,11 +21,7 @@ class ResultsListView extends StatelessWidget {
               keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
               shrinkWrap: true,
               itemCount: controller.resultsLength,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text("${index + 1}: ${controller.searchResults?.items[index].volumeInfo.title}"),
-                );
-              },
+              itemBuilder: (context, index) => VolumeCard(controller.searchResults?.items[index].volumeInfo),
             ),
           ),
           const Divider(thickness: 2, height: 0),
