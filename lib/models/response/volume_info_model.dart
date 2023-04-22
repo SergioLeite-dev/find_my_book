@@ -36,7 +36,7 @@ class VolumeInfo {
   final String? description;
   final List<IndustryIdentifier>? industryIdentifiers;
   final ReadingModes readingModes;
-  final String printType;
+  final String? printType;
   final List<String>? categories;
   final String maturityRating;
   final bool allowAnonLogging;
