@@ -5,14 +5,12 @@ import 'package:provider/provider.dart';
 class SearchButton extends StatelessWidget {
   const SearchButton({
     super.key,
-    required this.iconData,
     required this.height,
     required this.radius,
   });
-
-  final IconData iconData;
   final double height;
   final double radius;
+  final double iconSize = 30;
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +30,8 @@ class SearchButton extends StatelessWidget {
           )),
         ),
         child: Icon(
-          iconData,
-          size: 30,
+          Icons.search,
+          size: iconSize,
         ),
       ),
     );

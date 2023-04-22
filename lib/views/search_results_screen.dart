@@ -1,4 +1,5 @@
 import 'package:find_my_book/controllers/search_controller.dart';
+import 'package:find_my_book/views/results_list_view.dart';
 import 'package:find_my_book/widgets/return_button.dart';
 import 'package:find_my_book/widgets/search_button.dart';
 import 'package:find_my_book/widgets/search_text_field.dart';
@@ -67,52 +68,16 @@ class _SearchResultsScreenState extends State<SearchResultsScreen> {
                     radius: 25,
                   ),
                   const SearchButton(
-                    iconData: Icons.search,
                     height: 40,
                     radius: 25,
                   ),
                 ],
               ),
               const SizedBox(height: 10),
-              ItemsListView(),
+              const ResultsListView(),
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class ItemsListView extends StatelessWidget {
-  const ItemsListView({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final controller = context.watch<SearchController>();
-
-    return Expanded(
-      child: Column(
-        children: [
-          Expanded(
-            child: ListView.builder(
-              keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-              shrinkWrap: true,
-              itemCount: controller.resultsLength,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text("${index + 1}: ${controller.searchResults?.items[index].volumeInfo.title}"),
-                );
-              },
-            ),
-          ),
-          Row(
-            children: [
-              Text("Page ${controller.currentPage} of ${controller.maxPages}"),
-            ],
-          ),
-        ],
       ),
     );
   }

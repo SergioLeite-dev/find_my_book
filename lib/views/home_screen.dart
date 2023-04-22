@@ -66,7 +66,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   radius: 30,
                 ),
                 SearchButton(
-                  iconData: Icons.search,
                   height: 50,
                   radius: 30,
                 ),

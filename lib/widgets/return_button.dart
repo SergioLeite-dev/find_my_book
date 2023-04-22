@@ -7,6 +7,7 @@ class ReturnButton extends StatelessWidget {
   });
 
   final double height;
+  final double iconSize = 28;
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +23,9 @@ class ReturnButton extends StatelessWidget {
           padding: EdgeInsets.zero,
           shape: const CircleBorder(),
         ),
-        child: const Icon(
+        child: Icon(
           Icons.arrow_back,
-          size: 28,
+          size: iconSize,
         ),
       ),
     );

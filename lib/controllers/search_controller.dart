@@ -45,4 +45,22 @@ class SearchController extends ChangeNotifier {
       state = SearchState.idle;
     }
   }
+
+  void goToPreviousPage() {
+    if (currentPage > 1) {
+      currentPage--;
+      search();
+    } else {
+      //TODO: Implement no previous page error;
+    }
+  }
+
+  void goToNextPage() {
+    if (currentPage < maxPages) {
+      currentPage++;
+      search();
+    } else {
+      //TODO: Implement no next page error;
+    }
+  }
 }
