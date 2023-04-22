@@ -27,8 +27,6 @@ class _SearchResultsScreenState extends State<SearchResultsScreen> {
   _resultsListener() {
     if (mounted && ModalRoute.of(context)!.isCurrent) {
       switch (controller.state) {
-        // case SearchState.success:
-        //   break;
         case SearchState.error:
           ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Request Error')));
           break;
@@ -54,7 +52,7 @@ class _SearchResultsScreenState extends State<SearchResultsScreen> {
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         body: Padding(
-          padding: const EdgeInsets.fromLTRB(20, 40, 20, 0),
+          padding: const EdgeInsets.fromLTRB(20, 45, 20, 0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [

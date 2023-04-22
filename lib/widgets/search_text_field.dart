@@ -27,6 +27,8 @@ class SearchTextField extends StatelessWidget {
         child: TextField(
             controller: initialTextController,
             decoration: InputDecoration(
+              filled: true,
+              fillColor: Colors.blueGrey[50],
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(radius),
@@ -40,6 +42,5 @@ class SearchTextField extends StatelessWidget {
       ),
     );
   }
-}
-
 //TODO: Fix visual bug where letters are cut in half when text gets too long
+}
