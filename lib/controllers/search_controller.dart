@@ -11,27 +11,38 @@ class SearchController extends ChangeNotifier {
 
   final ClientHttp client;
   var state = SearchState.idle;
-  var searchRequest = SearchRequestModel("");
+  var searchRequest = SearchRequestModel(querry: "", startIndex: 0);
   VolumeList? searchResults;
+  int currentPage = 1;
+  int maxPages = 1;
+  int resultsLength = 0;
 
   Future<void> search() async {
-    state = SearchState.loading;
-    notifyListeners();
+    //state = SearchState.loading;
+    //notifyListeners();
     //await Future.delayed(const Duration(seconds: 1));
     if (searchRequest.querry == "") {
       state = SearchState.badRequest;
       notifyListeners();
+      state = SearchState.idle;
       return;
     }
+    searchRequest = searchRequest.copyWith(startIndex: (StaticValues.maxResults * (currentPage - 1)));
     try {
       final response = await client.get(StaticValues.apiUrl, searchRequest.toMap());
       searchResults = VolumeList.fromJson(response);
       state = SearchState.success;
+      maxPages = (searchResults!.totalItems / StaticValues.maxResults).ceil();
+      resultsLength = searchResults!.items.length;
+      //print("total items property ${searchResults?.totalItems}");
+      //print("items shown $resultsLength");
       notifyListeners();
+      state = SearchState.idle;
     } catch (e) {
       print(e);
       state = SearchState.error;
       notifyListeners();
+      state = SearchState.idle;
     }
   }
 }

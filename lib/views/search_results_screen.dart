@@ -26,10 +26,8 @@ class _SearchResultsScreenState extends State<SearchResultsScreen> {
   _resultsListener() {
     if (mounted && ModalRoute.of(context)!.isCurrent) {
       switch (controller.state) {
-        case SearchState.success:
-          //TODO: Unnecessary navigation. Just update List Widget.
-          Navigator.of(context).pushReplacementNamed(SearchResultsScreen.routeName);
-          break;
+        // case SearchState.success:
+        //   break;
         case SearchState.error:
           ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Request Error')));
           break;
@@ -50,30 +48,35 @@ class _SearchResultsScreenState extends State<SearchResultsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.fromLTRB(20, 40, 20, 0),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Row(
-              children: [
-                const ReturnButton(height: 40),
-                const SizedBox(width: 20),
-                SearchTextField.withInitialText(
-                  initialText: controller.searchRequest.querry,
-                  height: 40,
-                  radius: 25,
-                ),
-                const SearchButton(
-                  iconData: Icons.search,
-                  height: 40,
-                  radius: 25,
-                ),
-              ],
-            ),
-            ItemsListView(),
-          ],
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        body: Padding(
+          padding: const EdgeInsets.fromLTRB(20, 40, 20, 0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Row(
+                children: [
+                  const ReturnButton(height: 40),
+                  const SizedBox(width: 20),
+                  SearchTextField.withInitialText(
+                    initialText: controller.searchRequest.querry,
+                    height: 40,
+                    radius: 25,
+                  ),
+                  const SearchButton(
+                    iconData: Icons.search,
+                    height: 40,
+                    radius: 25,
+                  ),
+                ],
+              ),
+              const SizedBox(height: 10),
+              ItemsListView(),
+            ],
+          ),
         ),
       ),
     );
@@ -87,14 +90,29 @@ class ItemsListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //TODO: Implement ListView
-    return Flexible(
-      fit: FlexFit.loose,
-      child: ListView.builder(
-        itemCount: 20,
-        itemBuilder: (context, index) {
-          return ListTile(title: Text("item $index"));
-        },
+    final controller = context.watch<SearchController>();
+
+    return Expanded(
+      child: Column(
+        children: [
+          Expanded(
+            child: ListView.builder(
+              keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+              shrinkWrap: true,
+              itemCount: controller.resultsLength,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text("${index + 1}: ${controller.searchResults?.items[index].volumeInfo.title}"),
+                );
+              },
+            ),
+          ),
+          Row(
+            children: [
+              Text("Page ${controller.currentPage} of ${controller.maxPages}"),
+            ],
+          ),
+        ],
       ),
     );
   }

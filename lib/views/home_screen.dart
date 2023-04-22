@@ -49,25 +49,29 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Find My Book"),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-        child: Center(
-          child: Row(
-            children: const [
-              SearchTextField(
-                height: 50,
-                radius: 30,
-              ),
-              SearchButton(
-                iconData: Icons.search,
-                height: 50,
-                radius: 30,
-              ),
-            ],
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        appBar: AppBar(
+          title: const Text("Find My Book"),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+          child: Center(
+            child: Row(
+              children: const [
+                SearchTextField(
+                  height: 50,
+                  radius: 30,
+                ),
+                SearchButton(
+                  iconData: Icons.search,
+                  height: 50,
+                  radius: 30,
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -20,7 +20,10 @@ class SearchButton extends StatelessWidget {
     return SizedBox(
       height: height,
       child: ElevatedButton(
-        onPressed: controller.search,
+        onPressed: () {
+          controller.currentPage = 1;
+          controller.search();
+        },
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
