@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MakeFavoriteButton extends StatelessWidget {
-  const MakeFavoriteButton({
+class ToggleFavoriteButton extends StatelessWidget {
+  const ToggleFavoriteButton({
     super.key,
   });
 

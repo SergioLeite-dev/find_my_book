@@ -1,5 +1,5 @@
 import 'package:find_my_book/models/response/item_model.dart';
-import 'package:find_my_book/widgets/make_favorite_button.dart';
+import 'package:find_my_book/widgets/toggle_favorite_button.dart';
 import 'package:flutter/material.dart';
 
 class ItemCard extends StatelessWidget {
@@ -72,7 +72,7 @@ class ItemCard extends StatelessWidget {
                   ),
                   const Align(
                     alignment: Alignment.bottomRight,
-                    child: MakeFavoriteButton(),
+                    child: ToggleFavoriteButton(),
                   ),
                 ],
               ),
