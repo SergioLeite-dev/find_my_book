@@ -1,5 +1,5 @@
 import 'package:find_my_book/controllers/search_controller.dart';
-import 'package:find_my_book/views/results_list_view.dart';
+import 'package:find_my_book/views/items_list_view.dart';
 import 'package:find_my_book/widgets/pagination_button.dart';
 import 'package:find_my_book/widgets/return_button.dart';
 import 'package:find_my_book/widgets/search_button.dart';
