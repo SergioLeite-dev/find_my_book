@@ -12,8 +12,8 @@ class ImageLinks {
         thumbnail: json["thumbnail"],
       );
 
-  Map<String, dynamic> toJson() => {
-        "smallThumbnail": smallThumbnail,
-        "thumbnail": thumbnail,
+  static Map<String, dynamic> toJson(ImageLinks value) => {
+        "smallThumbnail": value.smallThumbnail,
+        "thumbnail": value.thumbnail,
       };
 }

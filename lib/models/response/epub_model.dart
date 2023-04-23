@@ -12,8 +12,8 @@ class Epub {
         acsTokenLink: json["acsTokenLink"],
       );
 
-  Map<String, dynamic> toJson() => {
-        "isAvailable": isAvailable,
-        "acsTokenLink": acsTokenLink,
+  static Map<String, dynamic> toJson(Epub value) => {
+        "isAvailable": value.isAvailable,
+        "acsTokenLink": value.acsTokenLink,
       };
 }

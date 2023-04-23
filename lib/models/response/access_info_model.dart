@@ -38,16 +38,16 @@ class AccessInfo {
         quoteSharingAllowed: json["quoteSharingAllowed"],
       );
 
-  Map<String, dynamic> toJson() => {
-        "country": country,
-        "viewability": viewability,
-        "embeddable": embeddable,
-        "publicDomain": publicDomain,
-        "textToSpeechPermission": textToSpeechPermission,
-        "epub": epub.toJson(),
-        "pdf": pdf.toJson(),
-        "webReaderLink": webReaderLink,
-        "accessViewStatus": accessViewStatus,
-        "quoteSharingAllowed": quoteSharingAllowed,
+  static Map<String, dynamic> toJson(AccessInfo value) => {
+        "country": value.country,
+        "viewability": value.viewability,
+        "embeddable": value.embeddable,
+        "publicDomain": value.publicDomain,
+        "textToSpeechPermission": value.textToSpeechPermission,
+        "epub": Epub.toJson(value.epub),
+        "pdf": Epub.toJson(value.pdf),
+        "webReaderLink": value.webReaderLink,
+        "accessViewStatus": value.accessViewStatus,
+        "quoteSharingAllowed": value.quoteSharingAllowed,
       };
 }

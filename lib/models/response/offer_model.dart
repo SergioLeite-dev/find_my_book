@@ -20,10 +20,10 @@ class Offer {
         giftable: json["giftable"],
       );
 
-  Map<String, dynamic> toJson() => {
-        "finskyOfferType": finskyOfferType,
-        "listPrice": listPrice.toJson(),
-        "retailPrice": retailPrice.toJson(),
-        "giftable": giftable,
+  static Map<String, dynamic> toJson(Offer value) => {
+        "finskyOfferType": value.finskyOfferType,
+        "listPrice": OfferListPrice.toJson(value.listPrice),
+        "retailPrice": OfferListPrice.toJson(value.retailPrice),
+        "giftable": value.giftable,
       };
 }

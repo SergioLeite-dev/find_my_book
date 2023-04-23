@@ -9,7 +9,7 @@ class SearchInfo {
         textSnippet: json["textSnippet"],
       );
 
-  Map<String, dynamic> toJson() => {
-        "textSnippet": textSnippet,
+  static Map<String, dynamic> toJson(SearchInfo value) => {
+        "textSnippet": value.textSnippet,
       };
 }

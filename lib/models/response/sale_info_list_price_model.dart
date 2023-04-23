@@ -12,8 +12,8 @@ class SaleInfoListPrice {
         currencyCode: json["currencyCode"],
       );
 
-  Map<String, dynamic> toJson() => {
-        "amount": amount,
-        "currencyCode": currencyCode,
+  static Map<String, dynamic> toJson(SaleInfoListPrice value) => {
+        "amount": value.amount,
+        "currencyCode": value.currencyCode,
       };
 }

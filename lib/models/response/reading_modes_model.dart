@@ -12,8 +12,8 @@ class ReadingModes {
         image: json["image"],
       );
 
-  Map<String, dynamic> toJson() => {
-        "text": text,
-        "image": image,
+  static Map<String, dynamic> toJson(ReadingModes value) => {
+        "text": value.text,
+        "image": value.image,
       };
 }

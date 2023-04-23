@@ -12,8 +12,8 @@ class PanelizationSummary {
         containsImageBubbles: json["containsImageBubbles"],
       );
 
-  Map<String, dynamic> toJson() => {
-        "containsEpubBubbles": containsEpubBubbles,
-        "containsImageBubbles": containsImageBubbles,
+  static Map<String, dynamic> toJson(PanelizationSummary value) => {
+        "containsEpubBubbles": value.containsEpubBubbles,
+        "containsImageBubbles": value.containsImageBubbles,
       };
 }

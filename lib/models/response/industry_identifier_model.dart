@@ -12,8 +12,8 @@ class IndustryIdentifier {
         identifier: json["identifier"],
       );
 
-  Map<String, dynamic> toJson() => {
-        "type": type,
-        "identifier": identifier,
+  static Map<String, dynamic> toJson(IndustryIdentifier value) => {
+        "type": value.type,
+        "identifier": value.identifier,
       };
 }

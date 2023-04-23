@@ -27,16 +27,16 @@ class SaleInfo {
         listPrice: json["listPrice"] == null ? null : SaleInfoListPrice.fromJson(json["listPrice"]),
         retailPrice: json["retailPrice"] == null ? null : SaleInfoListPrice.fromJson(json["retailPrice"]),
         buyLink: json["buyLink"],
-        offers: json["offers"] == null ? [] : List<Offer>.from(json["offers"]!.map((x) => Offer.fromJson(x))),
+        offers: json["offers"] == null ? null : List<Offer>.from(json["offers"]!.map((x) => Offer.fromJson(x))),
       );
 
-  Map<String, dynamic> toJson() => {
-        "country": country,
-        "saleability": saleability,
-        "isEbook": isEbook,
-        "listPrice": listPrice?.toJson(),
-        "retailPrice": retailPrice?.toJson(),
-        "buyLink": buyLink,
-        "offers": offers == null ? [] : List<dynamic>.from(offers!.map((x) => x.toJson())),
+  static Map<String, dynamic> toJson(SaleInfo value) => {
+        "country": value.country,
+        "saleability": value.saleability,
+        "isEbook": value.isEbook,
+        "listPrice": value.listPrice == null ? null : SaleInfoListPrice.toJson(value.listPrice!),
+        "retailPrice": value.retailPrice == null ? null : SaleInfoListPrice.toJson(value.retailPrice!),
+        "buyLink": value.buyLink,
+        "offers": value.offers == null ? null : List<Map<String, dynamic>>.from(value.offers!.map((x) => Offer.toJson(x))),
       };
 }
