@@ -5,7 +5,6 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class DeviceStorage {
   static const _storage = FlutterSecureStorage();
-
   static const _keyFavorites = "favorites";
 
   static Future setFavorites(List<Item> favorites) async {
@@ -13,9 +12,14 @@ class DeviceStorage {
     await _storage.write(key: _keyFavorites, value: encoded);
   }
 
-  // static Future<List<Item>> getFavorites() async {
-  //   final encoded = await _storage.read(key: _keyFavorites);
-  // }
+  static Future<List<Item>> getFavorites() async {
+    try {
+      final String? encoded = await _storage.read(key: _keyFavorites);
+      return decodeList(encoded!);
+    } catch (e) {
+      rethrow;
+    }
+  }
 
   static String encodeList(List<Item> favorites) {
     return jsonEncode(favorites, toEncodable: (value) => value is Item ? Item.toJson(value) : throw UnsupportedError('Cannot convert to JSON: $value'));

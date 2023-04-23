@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:find_my_book/controllers/items_controller_interface.dart';
 import 'package:find_my_book/models/response/item_model.dart';
 import 'package:find_my_book/services/device_storage.dart';
@@ -20,10 +18,6 @@ class FavoritesController extends ChangeNotifier implements ItemsControllerInter
     } else {
       itemsList.add(item);
     }
-    //The code below has ensured that both the encoder and decoder are working as intended.
-    log(DeviceStorage.encodeList(itemsList));
-    print("___________\n\n");
-    log(DeviceStorage.encodeList(DeviceStorage.decodeList(DeviceStorage.encodeList(itemsList))));
     notifyListeners();
   }
 }
