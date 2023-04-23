@@ -48,12 +48,13 @@ class _SearchResultsScreenState extends State<SearchResultsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final statusBarHeight = MediaQuery.of(context).viewPadding.top;
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         body: Padding(
-          padding: const EdgeInsets.fromLTRB(20, 45, 20, 0),
+          padding: EdgeInsets.fromLTRB(20, statusBarHeight + 20, 20, 0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [

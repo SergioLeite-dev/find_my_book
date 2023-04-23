@@ -1,5 +1,6 @@
 import 'package:find_my_book/controllers/search_controller.dart';
 import 'package:find_my_book/views/search_results_screen.dart';
+import 'package:find_my_book/widgets/goToFavoritesButton.dart';
 import 'package:find_my_book/widgets/search_text_field.dart';
 import 'package:find_my_book/widgets/search_button.dart';
 import 'package:flutter/material.dart';
@@ -57,20 +58,28 @@ class _HomeScreenState extends State<HomeScreen> {
           title: const Text("Find My Book"),
         ),
         body: Padding(
-          padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-          child: Center(
-            child: Row(
-              children: const [
-                SearchTextField(
-                  height: 50,
-                  radius: 30,
+          padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
+          child: Stack(
+            children: [
+              Center(
+                child: Row(
+                  children: const [
+                    SearchTextField(
+                      height: 50,
+                      radius: 30,
+                    ),
+                    SearchButton(
+                      height: 50,
+                      radius: 30,
+                    ),
+                  ],
                 ),
-                SearchButton(
-                  height: 50,
-                  radius: 30,
-                ),
-              ],
-            ),
+              ),
+              const Align(
+                alignment: Alignment.bottomLeft,
+                child: GoToFavoritesButton(),
+              )
+            ],
           ),
         ),
       ),
