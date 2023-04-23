@@ -11,4 +11,9 @@ class OfferListPrice {
         amountInMicros: json["amountInMicros"],
         currencyCode: json["currencyCode"],
       );
+
+  Map<String, dynamic> toJson() => {
+        "amountInMicros": amountInMicros,
+        "currencyCode": currencyCode,
+      };
 }

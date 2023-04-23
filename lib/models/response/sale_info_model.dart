@@ -29,4 +29,14 @@ class SaleInfo {
         buyLink: json["buyLink"],
         offers: json["offers"] == null ? [] : List<Offer>.from(json["offers"]!.map((x) => Offer.fromJson(x))),
       );
+
+  Map<String, dynamic> toJson() => {
+        "country": country,
+        "saleability": saleability,
+        "isEbook": isEbook,
+        "listPrice": listPrice?.toJson(),
+        "retailPrice": retailPrice?.toJson(),
+        "buyLink": buyLink,
+        "offers": offers == null ? [] : List<dynamic>.from(offers!.map((x) => x.toJson())),
+      };
 }

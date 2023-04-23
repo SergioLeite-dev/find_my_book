@@ -37,4 +37,17 @@ class AccessInfo {
         accessViewStatus: json["accessViewStatus"],
         quoteSharingAllowed: json["quoteSharingAllowed"],
       );
+
+  Map<String, dynamic> toJson() => {
+        "country": country,
+        "viewability": viewability,
+        "embeddable": embeddable,
+        "publicDomain": publicDomain,
+        "textToSpeechPermission": textToSpeechPermission,
+        "epub": epub.toJson(),
+        "pdf": pdf.toJson(),
+        "webReaderLink": webReaderLink,
+        "accessViewStatus": accessViewStatus,
+        "quoteSharingAllowed": quoteSharingAllowed,
+      };
 }

@@ -11,4 +11,9 @@ class SaleInfoListPrice {
         amount: json["amount"]?.toDouble(),
         currencyCode: json["currencyCode"],
       );
+
+  Map<String, dynamic> toJson() => {
+        "amount": amount,
+        "currencyCode": currencyCode,
+      };
 }

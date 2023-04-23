@@ -77,4 +77,29 @@ class VolumeInfo {
         averageRating: json["averageRating"]?.toDouble(),
         ratingsCount: json["ratingsCount"],
       );
+
+  Map<String, dynamic> toJson() => {
+        "title": title,
+        "subtitle": subtitle,
+        "publishedDate": publishedDate,
+        "industryIdentifiers": industryIdentifiers == null ? [] : List<dynamic>.from(industryIdentifiers!.map((x) => x.toJson())),
+        "readingModes": readingModes.toJson(),
+        "pageCount": pageCount,
+        "printType": printType,
+        "categories": categories == null ? [] : List<dynamic>.from(categories!.map((x) => x)),
+        "maturityRating": maturityRating,
+        "allowAnonLogging": allowAnonLogging,
+        "contentVersion": contentVersion,
+        "panelizationSummary": panelizationSummary?.toJson(),
+        "imageLinks": imageLinks?.toJson(),
+        "language": language,
+        "previewLink": previewLink,
+        "infoLink": infoLink,
+        "canonicalVolumeLink": canonicalVolumeLink,
+        "authors": authors == null ? [] : List<dynamic>.from(authors!.map((x) => x)),
+        "publisher": publisher,
+        "description": description,
+        "averageRating": averageRating,
+        "ratingsCount": ratingsCount,
+      };
 }

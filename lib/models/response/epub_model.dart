@@ -11,4 +11,9 @@ class Epub {
         isAvailable: json["isAvailable"],
         acsTokenLink: json["acsTokenLink"],
       );
+
+  Map<String, dynamic> toJson() => {
+        "isAvailable": isAvailable,
+        "acsTokenLink": acsTokenLink,
+      };
 }

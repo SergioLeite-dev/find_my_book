@@ -34,4 +34,15 @@ class Item {
         accessInfo: AccessInfo.fromJson(json["accessInfo"]),
         searchInfo: json["searchInfo"] == null ? null : SearchInfo.fromJson(json["searchInfo"]),
       );
+
+  Map<String, dynamic> toJson() => {
+        "kind": kind,
+        "id": id,
+        "etag": etag,
+        "selfLink": selfLink,
+        "volumeInfo": volumeInfo.toJson(),
+        "saleInfo": saleInfo.toJson(),
+        "accessInfo": accessInfo.toJson(),
+        "searchInfo": searchInfo?.toJson(),
+      };
 }

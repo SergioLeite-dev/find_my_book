@@ -8,7 +8,6 @@ class FavoritesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final statusBarHeight = MediaQuery.of(context).viewPadding.top;
     return Scaffold(
       appBar: AppBar(title: const Text("Your Favorites")),
       body: const Padding(
