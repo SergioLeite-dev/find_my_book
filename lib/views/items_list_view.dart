@@ -27,13 +27,11 @@ class ItemsListView extends StatelessWidget {
         child: Text("You have no favorite books yet."),
       );
     }
-    return Expanded(
-      child: ListView.builder(
-        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-        shrinkWrap: true,
-        itemCount: controller.itemsList.length,
-        itemBuilder: (context, index) => ItemCard(controller.itemsList[index]),
-      ),
+    return ListView.builder(
+      keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+      shrinkWrap: true,
+      itemCount: controller.itemsList.length,
+      itemBuilder: (context, index) => ItemCard(controller.itemsList[index]),
     );
   }
 }

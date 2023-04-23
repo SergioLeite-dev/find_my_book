@@ -74,7 +74,7 @@ class _SearchResultsScreenState extends State<SearchResultsScreen> {
                 ],
               ),
               const SizedBox(height: 10),
-              const ItemsListView.search(),
+              const Expanded(child: ItemsListView.search()),
               const Divider(thickness: 2, height: 0),
               Padding(
                 padding: const EdgeInsets.fromLTRB(0, 12, 0, 20),
