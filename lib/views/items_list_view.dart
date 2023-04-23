@@ -4,8 +4,6 @@ import 'package:find_my_book/widgets/item_card.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../controllers/items_controller_interface.dart';
-
 enum ListType { search, favorites }
 
 class ItemsListView extends StatelessWidget {

@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:find_my_book/models/response/item_model.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -11,9 +10,6 @@ class DeviceStorage {
   static Future setFavorites(List<Item> favorites) async {
     final encoded = _encodeList(favorites);
     await _storage.write(key: _keyFavorites, value: encoded);
-    //The code below shows that DeviceStorage is working as intended
-    final result = await getFavorites();
-    log(_encodeList(result ?? []));
   }
 
   static Future<List<Item>?> getFavorites() async {

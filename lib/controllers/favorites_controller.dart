@@ -4,6 +4,10 @@ import 'package:find_my_book/services/device_storage.dart';
 import 'package:flutter/material.dart';
 
 class FavoritesController extends ChangeNotifier implements ItemsControllerInterface {
+  FavoritesController() {
+    _getFavoritesFromDeviceStorage();
+  }
+
   @override
   List<Item> itemsList = [];
 
@@ -19,6 +23,11 @@ class FavoritesController extends ChangeNotifier implements ItemsControllerInter
       itemsList.add(item);
     }
     await DeviceStorage.setFavorites(itemsList);
+    notifyListeners();
+  }
+
+  Future<void> _getFavoritesFromDeviceStorage() async {
+    itemsList = await DeviceStorage.getFavorites() ?? [];
     notifyListeners();
   }
 }
