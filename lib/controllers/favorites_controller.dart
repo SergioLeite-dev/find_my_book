@@ -1,8 +1,8 @@
-import 'dart:convert';
 import 'dart:developer';
 
 import 'package:find_my_book/controllers/items_controller_interface.dart';
 import 'package:find_my_book/models/response/item_model.dart';
+import 'package:find_my_book/services/device_storage.dart';
 import 'package:flutter/material.dart';
 
 class FavoritesController extends ChangeNotifier implements ItemsControllerInterface {
@@ -20,11 +20,10 @@ class FavoritesController extends ChangeNotifier implements ItemsControllerInter
     } else {
       itemsList.add(item);
     }
-    // for (var i in itemsList) {
-    //   print(i.volumeInfo.title);
-    // }
-    //print(jsonEncode(Item.toJson(item)));
-    //log(jsonEncode(itemsList, toEncodable: (value) => value is Item ? Item.toJson(value) : throw UnsupportedError('Cannot convert to JSON: $value')));
+    //The code below has ensured that both the encoder and decoder are working as intended.
+    log(DeviceStorage.encodeList(itemsList));
+    print("___________\n\n");
+    log(DeviceStorage.encodeList(DeviceStorage.decodeList(DeviceStorage.encodeList(itemsList))));
     notifyListeners();
   }
 }

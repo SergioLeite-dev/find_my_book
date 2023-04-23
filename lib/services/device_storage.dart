@@ -9,6 +9,24 @@ class DeviceStorage {
   static const _keyFavorites = "favorites";
 
   static Future setFavorites(List<Item> favorites) async {
-    //final encoded = jsonEncode();
+    final encoded = encodeList(favorites);
+    await _storage.write(key: _keyFavorites, value: encoded);
+  }
+
+  // static Future<List<Item>> getFavorites() async {
+  //   final encoded = await _storage.read(key: _keyFavorites);
+  // }
+
+  static String encodeList(List<Item> favorites) {
+    return jsonEncode(favorites, toEncodable: (value) => value is Item ? Item.toJson(value) : throw UnsupportedError('Cannot convert to JSON: $value'));
+  }
+
+  static List<Item> decodeList(String encoded) {
+    try {
+      final List<dynamic> json = jsonDecode(encoded);
+      return List<Item>.from(json.map((x) => Item.fromJson(x)));
+    } catch (e) {
+      throw UnsupportedError('Cannot convert from JSON.\n${e.toString()}');
+    }
   }
 }
