@@ -1,6 +1,6 @@
 import 'package:find_my_book/controllers/search_controller.dart';
+import 'package:find_my_book/widgets/item_card.dart';
 import 'package:find_my_book/widgets/pagination_button.dart';
-import 'package:find_my_book/widgets/volume_card.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
