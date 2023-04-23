@@ -8,11 +8,11 @@ class ItemCard extends StatelessWidget {
     super.key,
   });
 
-  final Item? item;
+  final Item item;
 
   @override
   Widget build(BuildContext context) {
-    final info = item?.volumeInfo;
+    final info = item.volumeInfo;
 
     return Padding(
       padding: const EdgeInsets.only(bottom: 14),
@@ -32,7 +32,7 @@ class ItemCard extends StatelessWidget {
                       SizedBox(
                         width: 128,
                         height: 184,
-                        child: info?.imageLinks?.thumbnail != null ? Image.network(info!.imageLinks!.thumbnail) : const Placeholder(),
+                        child: info.imageLinks?.thumbnail != null ? Image.network(info.imageLinks!.thumbnail) : const Placeholder(),
                       ),
                       const SizedBox(width: 10),
                       Expanded(
@@ -46,20 +46,20 @@ class ItemCard extends StatelessWidget {
                               text: TextSpan(
                                 style: const TextStyle(color: Colors.black),
                                 children: [
-                                  TextSpan(text: info?.title),
-                                  TextSpan(text: info?.subtitle != null ? ": ${info?.subtitle}" : null),
+                                  TextSpan(text: info.title),
+                                  TextSpan(text: info.subtitle != null ? ": ${info.subtitle}" : null),
                                 ],
                               ),
                             ),
-                            if (info?.authors != null) ...[
+                            if (info.authors != null) ...[
                               const SizedBox(height: 6),
-                              Text(info!.authors!.join(", ")),
+                              Text(info.authors!.join(", ")),
                             ],
-                            if (info?.description != null) ...[
+                            if (info.description != null) ...[
                               const SizedBox(height: 6),
                               Expanded(
                                 child: Text(
-                                  info!.description!,
+                                  info.description!,
                                   softWrap: true,
                                   overflow: TextOverflow.fade,
                                 ),
@@ -70,9 +70,9 @@ class ItemCard extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const Align(
+                  Align(
                     alignment: Alignment.bottomRight,
-                    child: ToggleFavoriteButton(),
+                    child: ToggleFavoriteButton(item.id),
                   ),
                 ],
               ),

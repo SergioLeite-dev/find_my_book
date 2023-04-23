@@ -11,15 +11,14 @@ enum SearchState { idle, loading, success, error, badRequest }
 class SearchController extends ChangeNotifier implements ItemsControllerInterface {
   SearchController(this.client);
 
+  @override
+  List<Item> itemsList = [];
+
   final ClientHttp client;
   var state = SearchState.idle;
   var searchRequest = SearchRequestModel(querry: "", startIndex: 0);
   int currentPage = 1;
   int maxPages = 1;
-  @override
-  int itemsListLength = 0;
-  @override
-  List<Item>? itemsList;
   VolumeList? searchResult;
 
   Future<void> search() async {
@@ -36,9 +35,8 @@ class SearchController extends ChangeNotifier implements ItemsControllerInterfac
     try {
       final response = await client.get(StaticValues.apiUrl, searchRequest.toMap());
       searchResult = VolumeList.fromJson(response);
-      itemsList = searchResult?.items;
+      itemsList = searchResult?.items ?? [];
       maxPages = (searchResult!.totalItems / StaticValues.maxResults).ceil();
-      itemsListLength = itemsList!.length;
       //print("total items property ${searchResults?.totalItems}");
       //print("items shown $resultsLength");
       state = SearchState.success;

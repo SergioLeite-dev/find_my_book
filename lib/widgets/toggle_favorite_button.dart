@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 class ToggleFavoriteButton extends StatelessWidget {
-  const ToggleFavoriteButton({
+  const ToggleFavoriteButton(
+    this.itemId, {
     super.key,
   });
 
+  final String itemId;
   static const double height = 36;
   static const double iconSize = 26;
 

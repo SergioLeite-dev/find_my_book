@@ -22,8 +22,8 @@ class ItemsListView extends StatelessWidget {
       child: ListView.builder(
         keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         shrinkWrap: true,
-        itemCount: controller.itemsListLength,
-        itemBuilder: (context, index) => ItemCard(controller.itemsList?[index]),
+        itemCount: controller.itemsList.length,
+        itemBuilder: (context, index) => ItemCard(controller.itemsList[index]),
       ),
     );
   }
