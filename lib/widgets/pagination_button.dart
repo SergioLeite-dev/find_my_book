@@ -10,8 +10,8 @@ class PaginationButton extends StatelessWidget {
 
   final Direction direction;
 
-  final double height = 32;
-  final double iconSize = 24;
+  static const double height = 32;
+  static const double iconSize = 24;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class PaginationButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.grey[850],
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-          minimumSize: Size.fromRadius(height / 2),
+          minimumSize: const Size.fromRadius(height / 2),
           padding: EdgeInsets.zero,
           shape: const CircleBorder(),
         ),

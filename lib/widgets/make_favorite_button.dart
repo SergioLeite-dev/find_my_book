@@ -1,30 +1,29 @@
 import 'package:flutter/material.dart';
 
-class ReturnButton extends StatelessWidget {
-  const ReturnButton({
+class MakeFavoriteButton extends StatelessWidget {
+  const MakeFavoriteButton({
     super.key,
-    required this.height,
   });
 
-  final double height;
-  static const double iconSize = 28;
+  static const double height = 36;
+  static const double iconSize = 26;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: height,
       child: ElevatedButton(
-        onPressed: () {
-          Navigator.of(context).pop();
-        },
+        onPressed: () {},
         style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.grey.withOpacity(0.6),
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-          minimumSize: Size.fromRadius(height / 2),
+          minimumSize: const Size.fromRadius(height / 2),
           padding: EdgeInsets.zero,
           shape: const CircleBorder(),
         ),
         child: const Icon(
-          Icons.arrow_back,
+          Icons.star,
+          color: Colors.white,
           size: iconSize,
         ),
       ),

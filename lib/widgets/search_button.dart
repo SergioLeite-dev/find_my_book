@@ -10,7 +10,7 @@ class SearchButton extends StatelessWidget {
   });
   final double height;
   final double radius;
-  final double iconSize = 30;
+  static const double iconSize = 30;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class SearchButton extends StatelessWidget {
             bottomRight: Radius.circular(radius),
           )),
         ),
-        child: Icon(
+        child: const Icon(
           Icons.search,
           size: iconSize,
         ),
