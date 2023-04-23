@@ -1,4 +1,6 @@
+import 'package:find_my_book/controllers/items_controller_interface.dart';
 import 'package:find_my_book/models/request/search_request_model.dart';
+import 'package:find_my_book/models/response/item_model.dart';
 import 'package:find_my_book/models/response/volume_list_model.dart';
 import 'package:find_my_book/services/http_client.dart';
 import 'package:find_my_book/static/static_values.dart';
@@ -6,16 +8,19 @@ import 'package:flutter/material.dart';
 
 enum SearchState { idle, loading, success, error, badRequest }
 
-class SearchController extends ChangeNotifier {
+class SearchController extends ChangeNotifier implements ItemsControllerInterface {
   SearchController(this.client);
 
   final ClientHttp client;
   var state = SearchState.idle;
   var searchRequest = SearchRequestModel(querry: "", startIndex: 0);
-  VolumeList? searchResults;
   int currentPage = 1;
   int maxPages = 1;
-  int resultsLength = 0;
+  @override
+  int itemsListLength = 0;
+  @override
+  List<Item>? itemsList;
+  VolumeList? searchResult;
 
   Future<void> search() async {
     //state = SearchState.loading;
@@ -30,12 +35,13 @@ class SearchController extends ChangeNotifier {
     searchRequest = searchRequest.copyWith(startIndex: (StaticValues.maxResults * (currentPage - 1)));
     try {
       final response = await client.get(StaticValues.apiUrl, searchRequest.toMap());
-      searchResults = VolumeList.fromJson(response);
-      state = SearchState.success;
-      maxPages = (searchResults!.totalItems / StaticValues.maxResults).ceil();
-      resultsLength = searchResults!.items.length;
+      searchResult = VolumeList.fromJson(response);
+      itemsList = searchResult?.items;
+      maxPages = (searchResult!.totalItems / StaticValues.maxResults).ceil();
+      itemsListLength = itemsList!.length;
       //print("total items property ${searchResults?.totalItems}");
       //print("items shown $resultsLength");
+      state = SearchState.success;
       notifyListeners();
       state = SearchState.idle;
     } catch (e) {

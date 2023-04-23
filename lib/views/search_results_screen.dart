@@ -1,5 +1,6 @@
 import 'package:find_my_book/controllers/search_controller.dart';
 import 'package:find_my_book/views/results_list_view.dart';
+import 'package:find_my_book/widgets/pagination_button.dart';
 import 'package:find_my_book/widgets/return_button.dart';
 import 'package:find_my_book/widgets/search_button.dart';
 import 'package:find_my_book/widgets/search_text_field.dart';
@@ -72,7 +73,23 @@ class _SearchResultsScreenState extends State<SearchResultsScreen> {
                 ],
               ),
               const SizedBox(height: 10),
-              const ResultsListView(),
+              const ItemsListView.search(),
+              const Divider(thickness: 2, height: 0),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 12, 0, 20),
+                child: Row(
+                  children: [
+                    Builder(builder: (context) {
+                      final controller = context.watch<SearchController>();
+                      return Text("Page ${controller.currentPage}");
+                    }),
+                    const Spacer(),
+                    const PaginationButton.previous(),
+                    const SizedBox(width: 10),
+                    const PaginationButton.next(),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
