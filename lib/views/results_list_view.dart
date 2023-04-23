@@ -21,7 +21,7 @@ class ResultsListView extends StatelessWidget {
               keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
               shrinkWrap: true,
               itemCount: controller.resultsLength,
-              itemBuilder: (context, index) => VolumeCard(controller.searchResults?.items[index].volumeInfo),
+              itemBuilder: (context, index) => ItemCard(controller.searchResults?.items[index]),
             ),
           ),
           const Divider(thickness: 2, height: 0),

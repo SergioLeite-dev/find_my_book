@@ -1,17 +1,19 @@
-import 'package:find_my_book/models/response/volume_info_model.dart';
+import 'package:find_my_book/models/response/item_model.dart';
 import 'package:find_my_book/widgets/make_favorite_button.dart';
 import 'package:flutter/material.dart';
 
-class VolumeCard extends StatelessWidget {
-  const VolumeCard(
-    this.volumeInfo, {
+class ItemCard extends StatelessWidget {
+  const ItemCard(
+    this.item, {
     super.key,
   });
 
-  final VolumeInfo? volumeInfo;
+  final Item? item;
 
   @override
   Widget build(BuildContext context) {
+    final info = item?.volumeInfo;
+
     return Padding(
       padding: const EdgeInsets.only(bottom: 14),
       child: Material(
@@ -30,7 +32,7 @@ class VolumeCard extends StatelessWidget {
                       SizedBox(
                         width: 128,
                         height: 184,
-                        child: volumeInfo?.imageLinks?.thumbnail != null ? Image.network(volumeInfo!.imageLinks!.thumbnail) : const Placeholder(),
+                        child: info?.imageLinks?.thumbnail != null ? Image.network(info!.imageLinks!.thumbnail) : const Placeholder(),
                       ),
                       const SizedBox(width: 10),
                       Expanded(
@@ -44,20 +46,20 @@ class VolumeCard extends StatelessWidget {
                               text: TextSpan(
                                 style: const TextStyle(color: Colors.black),
                                 children: [
-                                  TextSpan(text: volumeInfo?.title),
-                                  TextSpan(text: volumeInfo?.subtitle != null ? ": ${volumeInfo?.subtitle}" : null),
+                                  TextSpan(text: info?.title),
+                                  TextSpan(text: info?.subtitle != null ? ": ${info?.subtitle}" : null),
                                 ],
                               ),
                             ),
-                            if (volumeInfo?.authors != null) ...[
+                            if (info?.authors != null) ...[
                               const SizedBox(height: 6),
-                              Text(volumeInfo!.authors!.join(", ")),
+                              Text(info!.authors!.join(", ")),
                             ],
-                            if (volumeInfo?.description != null) ...[
+                            if (info?.description != null) ...[
                               const SizedBox(height: 6),
                               Expanded(
                                 child: Text(
-                                  volumeInfo!.description!,
+                                  info!.description!,
                                   softWrap: true,
                                   overflow: TextOverflow.fade,
                                 ),
