@@ -1,3 +1,4 @@
+import 'package:find_my_book/controllers/favorites_controller.dart';
 import 'package:find_my_book/controllers/search_controller.dart';
 import 'package:find_my_book/services/http_client.dart';
 import 'package:find_my_book/views/home_screen.dart';
@@ -16,6 +17,7 @@ class FindMyBookApp extends StatelessWidget {
       providers: [
         Provider(create: (_) => ClientHttp()),
         ChangeNotifierProvider(create: (context) => SearchController(context.read())),
+        ChangeNotifierProvider(create: (context) => FavoritesController())
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
