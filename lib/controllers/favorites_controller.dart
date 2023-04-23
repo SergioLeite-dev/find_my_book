@@ -17,6 +17,9 @@ class FavoritesController extends ChangeNotifier implements ItemsControllerInter
     } else {
       itemsList.add(item);
     }
+    // for (var i in itemsList) {
+    //   print(i.volumeInfo.title);
+    // }
     notifyListeners();
   }
 }

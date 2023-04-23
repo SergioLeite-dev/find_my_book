@@ -72,7 +72,7 @@ class ItemCard extends StatelessWidget {
                   ),
                   Align(
                     alignment: Alignment.bottomRight,
-                    child: ToggleFavoriteButton(item.id),
+                    child: ToggleFavoriteButton(item),
                   ),
                 ],
               ),
