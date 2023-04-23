@@ -11,13 +11,14 @@ class FavoritesController extends ChangeNotifier implements ItemsControllerInter
     return itemsList.any((item) => item.id == id);
   }
 
-  void toggleFavorite(Item item) {
+  void toggleFavorite(Item item) async {
     final existingIndex = itemsList.indexWhere((i) => i.id == item.id);
     if (existingIndex >= 0) {
       itemsList.removeAt(existingIndex);
     } else {
       itemsList.add(item);
     }
+    await DeviceStorage.setFavorites(itemsList);
     notifyListeners();
   }
 }
