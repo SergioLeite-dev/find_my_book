@@ -1,10 +1,14 @@
-import 'package:find_my_book/views/favorites_screen.dart';
+import 'package:find_my_book/controllers/favorites_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class GoToFavoritesButton extends StatelessWidget {
-  const GoToFavoritesButton({
+class ExternalLinkButton extends StatelessWidget {
+  const ExternalLinkButton(
+    this.link, {
     super.key,
   });
+
+  final String? link;
   static const double height = 50;
   static const double radius = 30;
   static const double iconSize = 30;
@@ -14,23 +18,21 @@ class GoToFavoritesButton extends StatelessWidget {
     return SizedBox(
       height: height,
       child: ElevatedButton(
-        onPressed: () {
-          Navigator.of(context).pushNamed(FavoritesScreen.routeName);
-        },
+        onPressed: () {},
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(radius)),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: const [
-            Icon(
-              Icons.star,
-              size: iconSize,
+            Text(
+              "Purchase from Google Books",
+              style: TextStyle(fontSize: 16),
             ),
             SizedBox(width: 6),
-            Text(
-              "Favorites",
-              style: TextStyle(fontSize: 17),
+            Icon(
+              Icons.arrow_outward,
+              size: iconSize,
             ),
           ],
         ),
