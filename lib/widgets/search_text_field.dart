@@ -6,7 +6,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class SearchTextField extends StatelessWidget {
   const SearchTextField({super.key, required this.height, required this.radius}) : initialText = null;
 
-  SearchTextField.withInitialText({super.key, required this.height, required this.radius, required this.initialText});
+  const SearchTextField.withInitialText({super.key, required this.height, required this.radius, required this.initialText});
 
   final String? initialText;
   final double height;
@@ -15,18 +15,14 @@ class SearchTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Provider.of<SearchController>(context, listen: false);
+    final txtController = TextEditingController(text: initialText);
 
-    final TextEditingController? initialTextController;
-    if (initialText != null) {
-      initialTextController = TextEditingController(text: initialText);
-    } else {
-      initialTextController = null;
-    }
     return Expanded(
       child: SizedBox(
         height: height,
         child: TextField(
-            controller: initialTextController,
+            onTap: () => txtController.selection = TextSelection(baseOffset: 0, extentOffset: txtController.value.text.length),
+            controller: txtController,
             decoration: InputDecoration(
               contentPadding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
               hintText: AppLocalizations.of(context)?.search,
