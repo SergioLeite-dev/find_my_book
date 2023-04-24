@@ -1,16 +1,18 @@
-# find_my_book
+# Find My Book
 
-A new Flutter project.
+In this App you can:
+  - Search the Google Books API.
+  - See a brief description of the results.
+  - See detailed information about a book.
+  - Favorite books.
+  - Your Favorites are saved in your device. They will be there even if you kill the app and go offline.
+  - Be redirected to buy the book from Google Books.
 
-## Getting Started
+The App currently supports English, Spanish and Portuguese.
 
-This project is a starting point for a Flutter application.
+## Instalation
 
-A few resources to get you started if this is your first Flutter project:
+Simply clone this repository, and you are good to go!
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Comming soon:
+Get results only in your language.
