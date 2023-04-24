@@ -24,7 +24,6 @@ class ItemDetailsScreen extends StatelessWidget {
                     //crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
-                        color: Colors.blue,
                         width: 154,
                         height: 221,
                         child: item.volumeInfo.imageLinks?.thumbnail != null
@@ -71,9 +70,9 @@ class ItemDetailsScreen extends StatelessWidget {
                         item.volumeInfo.description ?? "",
                       ),
                     ),
-                    const Padding(
+                    Padding(
                       padding: const EdgeInsets.fromLTRB(0, 25, 0, 30),
-                      child: ExternalLinkButton(""),
+                      child: ExternalLinkButton(item.id),
                     )
                   ]
                 ],
