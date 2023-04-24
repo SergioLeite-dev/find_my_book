@@ -2,6 +2,7 @@ import 'package:find_my_book/models/response/item_model.dart';
 import 'package:find_my_book/widgets/external_link_button.dart';
 import 'package:find_my_book/widgets/toggle_favorite_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ItemDetailsScreen extends StatelessWidget {
   const ItemDetailsScreen({super.key});
@@ -57,7 +58,8 @@ class ItemDetailsScreen extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(22, 0, 22, 0),
                       child: RichText(
                         text: TextSpan(style: const TextStyle(color: Colors.black, fontSize: 16), children: [
-                          TextSpan(text: "By ${item.volumeInfo.authors!.join(", ")}"),
+                          TextSpan(text: AppLocalizations.of(context)?.by ?? "By "),
+                          TextSpan(text: item.volumeInfo.authors!.join(", ")),
                           TextSpan(text: item.volumeInfo.publishedDate != null ? " · ${item.volumeInfo.publishedDate!.substring(0, 4)}" : null),
                         ]),
                       ),

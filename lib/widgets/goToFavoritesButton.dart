@@ -1,5 +1,6 @@
 import 'package:find_my_book/views/favorites_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class GoToFavoritesButton extends StatelessWidget {
   const GoToFavoritesButton({
@@ -22,15 +23,15 @@ class GoToFavoritesButton extends StatelessWidget {
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
-          children: const [
-            Icon(
+          children: [
+            const Icon(
               Icons.star,
               size: iconSize,
             ),
-            SizedBox(width: 6),
+            const SizedBox(width: 6),
             Text(
-              "Favorites",
-              style: TextStyle(fontSize: 17),
+              AppLocalizations.of(context)?.favorites ?? "Favorites",
+              style: const TextStyle(fontSize: 17),
             ),
           ],
         ),

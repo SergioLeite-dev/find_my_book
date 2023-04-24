@@ -1,11 +1,14 @@
 import 'package:find_my_book/controllers/favorites_controller.dart';
 import 'package:find_my_book/controllers/search_controller.dart';
+import 'package:find_my_book/l10n/l10n.dart';
 import 'package:find_my_book/services/http_client.dart';
 import 'package:find_my_book/views/favorites_screen.dart';
 import 'package:find_my_book/views/home_screen.dart';
 import 'package:find_my_book/views/item_details_screen.dart';
 import 'package:find_my_book/views/search_results_screen.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
 void main() => runApp(const FindMyBookApp());
@@ -33,6 +36,13 @@ class FindMyBookApp extends StatelessWidget {
           FavoritesScreen.routeName: (context) => const FavoritesScreen(),
           ItemDetailsScreen.routeName: (context) => const ItemDetailsScreen(),
         },
+        supportedLocales: L10n.all,
+        localizationsDelegates: const [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+        ],
       ),
     );
   }

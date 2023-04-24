@@ -1,6 +1,6 @@
 import 'package:find_my_book/services/url_launcher.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ExternalLinkButton extends StatelessWidget {
   const ExternalLinkButton(
@@ -26,13 +26,13 @@ class ExternalLinkButton extends StatelessWidget {
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
-          children: const [
+          children: [
             Text(
-              "Purchase from Google Books",
-              style: TextStyle(fontSize: 16),
+              AppLocalizations.of(context)?.purchase ?? "Purchase from Google Books",
+              style: const TextStyle(fontSize: 16),
             ),
-            SizedBox(width: 6),
-            Icon(
+            const SizedBox(width: 6),
+            const Icon(
               Icons.arrow_outward,
               size: iconSize,
             ),

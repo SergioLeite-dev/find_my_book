@@ -1,0 +1,22 @@
+{
+    "search": "Search books",
+    "@search":{
+      "description": "search"
+    },
+    "favorites": "Favorites",
+    "@favorites": {
+      "description": "favorites"
+    },
+    "yfavorites": "Your Favorites",
+    "@yfavorites": {
+      "description": "favorites AppBar"
+    },
+    "by": "By ",
+    "@by": {
+      "description": "by some author"
+    },
+    "purchase": "Purchase from Google Books",
+    "@purchase": {
+      "description": "ExternalLinkButton text"
+    }
+}
