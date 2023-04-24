@@ -54,14 +54,16 @@ class _HomeScreenState extends State<HomeScreen> {
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        appBar: AppBar(
-          title: const Text("Find My Book"),
-        ),
         body: Padding(
           padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
           child: Stack(
             children: [
-              Center(
+              Align(
+                alignment: Alignment(0, -0.38),
+                child: Image.asset("assets/images/logo.png"),
+              ),
+              Align(
+                alignment: Alignment(0, 0.12),
                 child: Row(
                   children: const [
                     SearchTextField(

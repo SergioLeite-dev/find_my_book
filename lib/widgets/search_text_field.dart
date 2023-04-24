@@ -28,7 +28,7 @@ class SearchTextField extends StatelessWidget {
             controller: initialTextController,
             decoration: InputDecoration(
               filled: true,
-              fillColor: Colors.blueGrey[50],
+              fillColor: Colors.teal[50],
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(radius),

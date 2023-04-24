@@ -22,6 +22,7 @@ class FindMyBookApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => FavoritesController())
       ],
       child: MaterialApp(
+        theme: ThemeData(primarySwatch: Colors.teal),
         debugShowCheckedModeBanner: false,
         title: "Find My Book App",
         initialRoute: "/",

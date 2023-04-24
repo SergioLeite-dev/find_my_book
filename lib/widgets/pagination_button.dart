@@ -23,7 +23,7 @@ class PaginationButton extends StatelessWidget {
           direction == Direction.previous ? controller.goToPreviousPage() : controller.goToNextPage();
         },
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.grey[850],
+          backgroundColor: Colors.teal,
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           minimumSize: const Size.fromRadius(height / 2),
           padding: EdgeInsets.zero,
