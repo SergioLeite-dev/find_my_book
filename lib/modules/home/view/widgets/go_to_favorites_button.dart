@@ -1,4 +1,4 @@
-import 'package:find_my_book/views/favorites_screen.dart';
+import 'package:find_my_book/modules/favorites/view/favorites_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 

@@ -1,4 +1,4 @@
-import 'package:find_my_book/controllers/search_controller.dart';
+import 'package:find_my_book/modules/shared/controllers/search_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';

@@ -1,4 +1,4 @@
-import 'package:find_my_book/controllers/items_controller_interface.dart';
+import 'package:find_my_book/modules/shared/interfaces/items_controller_interface.dart';
 import 'package:find_my_book/models/response/item_model.dart';
 import 'package:find_my_book/services/device_storage.dart';
 import 'package:flutter/material.dart';

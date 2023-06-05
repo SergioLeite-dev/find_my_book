@@ -1,8 +1,8 @@
-import 'package:find_my_book/controllers/search_controller.dart';
-import 'package:find_my_book/views/search_results_screen.dart';
-import 'package:find_my_book/widgets/goToFavoritesButton.dart';
-import 'package:find_my_book/widgets/search_text_field.dart';
-import 'package:find_my_book/widgets/search_button.dart';
+import 'package:find_my_book/modules/shared/controllers/search_controller.dart';
+import 'package:find_my_book/modules/results/view/search_results_screen.dart';
+import 'package:find_my_book/modules/home/view/widgets/go_to_favorites_button.dart';
+import 'package:find_my_book/modules/shared/widgets/search_text_field.dart';
+import 'package:find_my_book/modules/shared/widgets/search_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

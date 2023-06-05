@@ -1,6 +1,6 @@
 import 'package:find_my_book/models/response/item_model.dart';
-import 'package:find_my_book/views/item_details_screen.dart';
-import 'package:find_my_book/widgets/toggle_favorite_button.dart';
+import 'package:find_my_book/modules/details/view/item_details_screen.dart';
+import 'package:find_my_book/modules/shared/widgets/toggle_favorite_button.dart';
 import 'package:flutter/material.dart';
 
 class ItemCard extends StatelessWidget {

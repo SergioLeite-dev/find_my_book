@@ -1,4 +1,4 @@
-import 'package:find_my_book/controllers/favorites_controller.dart';
+import 'package:find_my_book/modules/favorites/controller/favorites_controller.dart';
 import 'package:find_my_book/models/response/item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

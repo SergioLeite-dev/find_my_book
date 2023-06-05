@@ -1,6 +1,6 @@
 import 'package:find_my_book/models/response/item_model.dart';
-import 'package:find_my_book/widgets/external_link_button.dart';
-import 'package:find_my_book/widgets/toggle_favorite_button.dart';
+import 'package:find_my_book/modules/details/view/widgets/external_link_button.dart';
+import 'package:find_my_book/modules/shared/widgets/toggle_favorite_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -22,7 +22,6 @@ class ItemDetailsScreen extends StatelessWidget {
               child: Column(
                 children: [
                   Row(
-                    //crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
                         width: 154,

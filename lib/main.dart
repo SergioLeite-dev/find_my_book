@@ -1,11 +1,11 @@
-import 'package:find_my_book/controllers/favorites_controller.dart';
-import 'package:find_my_book/controllers/search_controller.dart';
+import 'package:find_my_book/modules/favorites/controller/favorites_controller.dart';
+import 'package:find_my_book/modules/shared/controllers/search_controller.dart';
 import 'package:find_my_book/l10n/l10n.dart';
 import 'package:find_my_book/services/http_client.dart';
-import 'package:find_my_book/views/favorites_screen.dart';
-import 'package:find_my_book/views/home_screen.dart';
-import 'package:find_my_book/views/item_details_screen.dart';
-import 'package:find_my_book/views/search_results_screen.dart';
+import 'package:find_my_book/modules/favorites/view/favorites_screen.dart';
+import 'package:find_my_book/modules/home/view/home_screen.dart';
+import 'package:find_my_book/modules/details/view/item_details_screen.dart';
+import 'package:find_my_book/modules/results/view/search_results_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
